@@ -1,6 +1,6 @@
 # stockPhotoAutomation
 This automation project uses the following UI automation tools:
-- Java
-- selenium webdriver
-- TestNG
-- Apache Maven 
+- Java: 1.8
+- Selenium Webdriver: 3.4.0
+- TestNG: 6.8
+- Apache-Maven: 3.5.0 
