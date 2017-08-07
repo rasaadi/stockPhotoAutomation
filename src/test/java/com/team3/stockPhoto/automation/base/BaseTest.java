@@ -49,6 +49,7 @@ public class BaseTest extends Settings{
   public static void startBrowser(){
     log.info("Starting Browser Driver");
 
+    // Setting up "gecko.driver" in the system path that is required by the Selenium webdriver
     System.setProperty("webdriver.gecko.driver", "C:\\rsDevelopment\\tools\\geckodriver-v0.18.0\\geckodriver.exe");
 
     driver = new FirefoxDriver();
