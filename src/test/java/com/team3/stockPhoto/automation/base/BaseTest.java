@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by rafsan on 8/6/2017.
  */
-public class BaseTest extends Settings{
+public class BaseTest extends CommonSettings {
   private static final Logger log = Logger.getLogger(BaseTest.class);
 
   protected static WebDriver driver = null;
@@ -53,7 +53,7 @@ public class BaseTest extends Settings{
     System.setProperty("webdriver.gecko.driver", "C:\\rsDevelopment\\tools\\geckodriver-v0.18.0\\geckodriver.exe");
 
     driver = new FirefoxDriver();
-    driver.get(BASE_SERVER_ADDRESS);
+    driver.get(APP_HOME_URL);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 

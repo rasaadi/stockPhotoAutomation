@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 /**
  * Created by rafsan on 8/7/2017.
  */
-public class UnRegisteredUserTests extends BaseTest {
+public class MediaSearchTests extends BaseTest {
 
   @Test(enabled = true, description = "Verify un-registered user can search for desired media")
   public void  testUnRegisteredUserSearchMediaSuccess() throws Exception{
@@ -16,7 +16,6 @@ public class UnRegisteredUserTests extends BaseTest {
     // ==== CONFIGURATION ====
     String searchMediaTitle = "Banana Gun";
     String searchMediaDescription = "hold it!";
-
 
     // ==== ACTION ====
     UiActions.openingHomePage();

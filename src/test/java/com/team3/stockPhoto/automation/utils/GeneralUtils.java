@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by rafsan on 8/7/2017.
  */
@@ -59,6 +62,11 @@ public class GeneralUtils extends BaseTest{
 
     }
 
+  }
+
+  public static String  currentTimeStamp(){
+    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+    return timeStamp;
   }
 
 }
