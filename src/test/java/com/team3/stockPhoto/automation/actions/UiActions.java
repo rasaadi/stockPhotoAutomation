@@ -70,18 +70,26 @@ public class UiActions extends BaseTest {
   public static void sendMessageToSellerForSearchedItem(String messageBody) {
     log.info("Contacting seller: " + messageBody);
 
+    // Wait  to load the search results
     GeneralUtils.waitFor(100);
 
+    // Click Contact seller to send message
     Assert.assertEquals(driver.findElement(By.linkText("Contact Seller")).getText(),
         "Contact Seller", "Failed to find contact seller option");
     driver.findElement(By.linkText("Contact Seller")).click();
 
+    // Wait to load message compose page
     GeneralUtils.waitFor(100);
 
+    // Making sure message compose page is infact displayed
     Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
         "Send Message", "Message form is not displayed");
+
+    // Composing message body
     driver.findElement(By.id("msg-body")).clear();
     driver.findElement(By.id("msg-body")).sendKeys(messageBody);
+
+    // Click message send button
     driver.findElement(By.cssSelector("form > button[type=\"submit\"]")).click();
 
   }

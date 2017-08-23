@@ -80,11 +80,14 @@ public class UiVerifications extends BaseTest {
   public static void verifyMessageSentSuccessfully() {
     log.info("Verifying message to seller is sent successfully" );
 
+    // Wait to load Message List page
     GeneralUtils.waitFor(100);
 
+    // Verify buyer is redirected to message list page
     Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
         "Message List", "Message list is not displayed");
 
+    // Verify that message sent confirmation message is displayed
     Assert.assertTrue(GeneralUtils.isElementPresent(By.cssSelector("div.message.success")));
     Assert.assertEquals(driver.findElement(By.cssSelector("div.message.success")).getText(),
         "Message Send Success.", "Msg sent confirmation is not displayed");
