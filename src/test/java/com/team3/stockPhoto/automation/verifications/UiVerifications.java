@@ -93,4 +93,56 @@ public class UiVerifications extends BaseTest {
     UiActions.loggingOut();
 
   }
+
+  public static void verifyViewMessageInMessageListSuccessfully(String messageSender, String messageRecipient, String messageSubject) {
+    log.info("Verifying " + messageRecipient + " has message from '" + messageRecipient + "' in message list");
+
+    GeneralUtils.waitFor(100);
+
+    // This will always pick the top message to verify
+    Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
+        "Message List", "Not in the Message list page");
+
+    Assert.assertEquals(driver.findElement(By.cssSelector("td")).getText(),
+        messageSender, "Incorrect msg Sender");
+    Assert.assertEquals(driver.findElement(By.xpath("//td[2]")).getText(),
+        messageRecipient, "Incorrect msg Recipient");
+    Assert.assertEquals(driver.findElement(By.xpath("//td[3]")).getText(),
+        messageSubject, "Incorrect msg Subject");
+
+    // Logging out so that other test can run without any issue
+    UiActions.loggingOut();
+  }
+
+
+  public static void verifyViewMessageDetailsSuccessfully(String messageSender, String messageRecipient, String messageSubject) {
+    log.info("Verifying " + messageRecipient + " successfully view message details with subject '"  + messageSubject + "'" );
+
+    GeneralUtils.waitFor(100);
+
+    Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
+        "Message List", "Not in the Message list page");
+
+    // This will always select the top message for viewing details
+    driver.findElement(By.linkText("View Message")).click();
+
+    GeneralUtils.waitFor(100);
+
+    // Verify message details in view message page
+    Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
+        "View Message", "Not in the Message Details page");
+
+    Assert.assertEquals(driver.findElement(By.cssSelector("fieldset > h4")).getText(),
+        "Sender: " + messageSender + "", "Incorrect msg Sender");
+    Assert.assertEquals(driver.findElement(By.cssSelector("p")).getText(),
+        "Recipient: " + messageRecipient + "", "Incorrect msg Recipient");
+    Assert.assertEquals(driver.findElement(By.xpath("//p[2]")).getText(),
+        "Subject: " + messageSubject + "", "Incorrect msg Subject");
+
+    // Logging out so that other test can run without any issue
+    UiActions.loggingOut();
+  }
+
+
 }
+

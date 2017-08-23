@@ -65,7 +65,7 @@ public class UiActions extends BaseTest {
 
   }
 
-  public static void messageSellerForSearchedItem(String messageBody) {
+  public static void contactSellerForSearchedItem(String messageBody) {
     log.info("Contacting seller: " + messageBody);
 
     GeneralUtils.waitFor(100);

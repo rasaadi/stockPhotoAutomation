@@ -26,7 +26,7 @@ public class BuyerTests extends BaseTest {
       UiActions.openingHomePage();
       UiActions.searchWithoutCategory(mediaTitle);
 
-      UiActions.messageSellerForSearchedItem(messageToSeller);
+      UiActions.contactSellerForSearchedItem(messageToSeller);
 
       // ==== VERIFICATION ====
       UiVerifications.verifyMessageSentSuccessfully();

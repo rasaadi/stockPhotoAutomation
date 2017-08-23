@@ -14,6 +14,9 @@ public class CommonSettings {
   public static final String APP_HOME_URL = SERVER_BASE_URL + "/Home";
   public static final String USER_LOGIN_URL = SERVER_BASE_URL + "/users/login";
   public static final String USER_REGISTRATION_URL = SERVER_BASE_URL + "/users/add";
+  public static final String COMMUNICATION_MANAGER_URL = SERVER_BASE_URL + "/Communications/msgList";
+
+
 
   /**
    * System User Info
