@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="GatorBaker Automation " verbose="1" >
+    <test name="All Tests for Stock Photo Marketplace " >
+        <classes>
+            <class name="com.team3.stockPhoto.automation.tests.UserManagementTests"/>
+            <class name="com.team3.stockPhoto.automation.tests.MediaSearchTests"/>
+            <class name="com.team3.stockPhoto.automation.tests.BuyerTests"/>
+            <class name="com.team3.stockPhoto.automation.tests.SellerTests"/>
+        </classes>
+    </test>
+</suite>

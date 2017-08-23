@@ -16,6 +16,12 @@ public class BaseTest extends CommonSettings {
 
   protected static WebDriver driver = null;
 
+  @BeforeSuite(alwaysRun = true)
+  public void initSuite() throws Exception {
+
+    log.info("-------- START SUITE --------");
+  }
+
   @BeforeClass(alwaysRun = true)
   public void initClass() {
 
@@ -44,6 +50,12 @@ public class BaseTest extends CommonSettings {
     stopBrowser();
 
     log.info("-------- END CLASS --------");
+  }
+
+  @AfterSuite(alwaysRun = true)
+  public void tearDownSuite() {
+
+    log.info("-------- END SUITE --------");
   }
 
   public static void startBrowser(){
