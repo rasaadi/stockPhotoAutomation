@@ -4,12 +4,15 @@ import com.team3.stockPhoto.automation.actions.UiActions;
 import com.team3.stockPhoto.automation.base.BaseTest;
 import com.team3.stockPhoto.automation.utils.GeneralUtils;
 import com.team3.stockPhoto.automation.verifications.UiVerifications;
+import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 /**
  * Created by rafsan on 8/22/2017.
  */
 public class UserManagementTests extends BaseTest {
+  private static final Logger log = Logger.getLogger(UserManagementTests.class);
+
   @Test(enabled = true, description = "Verify new customer can register into the stock photo marketplace")
   public void  testUserRegistrationSuccess() throws Exception{
 

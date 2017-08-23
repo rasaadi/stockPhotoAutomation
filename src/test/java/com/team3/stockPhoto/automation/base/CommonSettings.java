@@ -8,15 +8,12 @@ public class CommonSettings {
   /**
    * System URLs
    */
-
   public static final String SERVER_BASE_URL = "http://localhost/stockPhotoMedia/gatorBaker";
 
   public static final String APP_HOME_URL = SERVER_BASE_URL + "/Home";
   public static final String USER_LOGIN_URL = SERVER_BASE_URL + "/users/login";
   public static final String USER_REGISTRATION_URL = SERVER_BASE_URL + "/users/add";
   public static final String COMMUNICATION_MANAGER_URL = SERVER_BASE_URL + "/Communications/msgList";
-
-
 
   /**
    * System User Info

@@ -27,8 +27,10 @@ public class UiActions extends BaseTest {
 
     GeneralUtils.waitFor(100);
 
-    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("Home")), "Incorrect Home Page");
-    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("About Us")), "Incorrect Home Page");
+    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("Home")),
+        "Incorrect Home Page");
+    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("About Us")),
+        "Incorrect Home Page");
   }
 
   public static void loggingInAs(String userEmail, String userPassword) {
@@ -65,7 +67,7 @@ public class UiActions extends BaseTest {
 
   }
 
-  public static void contactSellerForSearchedItem(String messageBody) {
+  public static void sendMessageToSellerForSearchedItem(String messageBody) {
     log.info("Contacting seller: " + messageBody);
 
     GeneralUtils.waitFor(100);
