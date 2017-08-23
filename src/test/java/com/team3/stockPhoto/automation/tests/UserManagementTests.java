@@ -35,7 +35,7 @@ public class UserManagementTests extends BaseTest {
 
     // ==== ACTION ====
     UiActions.openUrl(USER_LOGIN_URL);
-    UiActions.loggingInToSystemAs(regUserEmail, regUserPassword);
+    UiActions.loggingInAs(regUserEmail, regUserPassword);
 
     // ==== VERIFICATION ====
     UiVerifications.verifyUserLoginSuccessful();
@@ -50,7 +50,7 @@ public class UserManagementTests extends BaseTest {
 
     // ==== ACTION ====
     UiActions.openUrl(USER_LOGIN_URL);
-    UiActions.loggingInToSystemAs(correctEmail, noPassword);
+    UiActions.loggingInAs(correctEmail, noPassword);
 
     // ==== VERIFICATION ====
     UiVerifications.verifyUserLoginFail();

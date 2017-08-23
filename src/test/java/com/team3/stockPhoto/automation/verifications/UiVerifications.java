@@ -1,12 +1,11 @@
 package com.team3.stockPhoto.automation.verifications;
 
+import com.team3.stockPhoto.automation.actions.UiActions;
 import com.team3.stockPhoto.automation.base.BaseTest;
 import com.team3.stockPhoto.automation.utils.GeneralUtils;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-
-import static com.team3.stockPhoto.automation.utils.GeneralUtils.isElementPresent;
 
 /**
  * Created by rafsan on 8/7/2017.
@@ -39,7 +38,7 @@ public class UiVerifications extends BaseTest {
 
     GeneralUtils.waitFor(100);
 
-    Assert.assertTrue(isElementPresent(By.cssSelector("div.message.success")),
+    Assert.assertTrue(GeneralUtils.isElementPresent(By.cssSelector("div.message.success")),
         "Registration message not present");
     Assert.assertEquals(driver.findElement(By.cssSelector("div.message.success")).getText(),
         "Congratulations! User is created.", "User Registration failed");
@@ -59,9 +58,7 @@ public class UiVerifications extends BaseTest {
         "Logout", "Logout element does not exist");
 
     // Logging out so that other test can run without any issue
-    driver.findElement(By.linkText("Logout")).click();
-    Assert.assertEquals(driver.findElement(By.linkText("Login")).getText(),
-        "Login", "User did not log out");
+    UiActions.loggingOut();
   }
 
   public static void verifyUserLoginFail() {
@@ -78,5 +75,22 @@ public class UiVerifications extends BaseTest {
         "Login link element is not present");
     Assert.assertEquals(driver.findElement(By.linkText("Login")).getText(),
         "Login", "Login link is not present");
+  }
+
+  public static void verifyMessageSentSuccessfully() {
+    log.info("Verifying message to seller is sent successfully" );
+
+    GeneralUtils.waitFor(100);
+
+    Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
+        "Message List", "Message list is not displayed");
+
+    Assert.assertTrue(GeneralUtils.isElementPresent(By.cssSelector("div.message.success")));
+    Assert.assertEquals(driver.findElement(By.cssSelector("div.message.success")).getText(),
+        "Message Send Success.", "Msg sent confirmation is not displayed");
+
+    // Logging out so that other test can run without any issue
+    UiActions.loggingOut();
+
   }
 }

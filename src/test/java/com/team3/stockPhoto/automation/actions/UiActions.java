@@ -28,7 +28,29 @@ public class UiActions extends BaseTest {
     GeneralUtils.waitFor(100);
 
     Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("Home")), "Incorrect Home Page");
-    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("Login")), "Incorrect Home Page");
+    Assert.assertTrue(GeneralUtils.isElementPresent(By.linkText("About Us")), "Incorrect Home Page");
+  }
+
+  public static void loggingInAs(String userEmail, String userPassword) {
+    log.info("Logging into system as: " + userEmail + "/" + userPassword);
+
+    driver.findElement(By.id("email")).clear();
+    driver.findElement(By.id("email")).sendKeys(userEmail);
+    driver.findElement(By.id("password")).clear();
+    driver.findElement(By.id("password")).sendKeys(userPassword);
+
+    driver.findElement(By.cssSelector("form > button[type=\"submit\"]")).click();
+  }
+
+  public static void loggingOut(){
+    log.info("Logging  out the current user");
+
+    Assert.assertEquals(driver.findElement(By.linkText("Logout")).getText(),
+        "Logout", "User is not logged in");
+    driver.findElement(By.linkText("Logout")).click();
+
+    Assert.assertEquals(driver.findElement(By.linkText("Login")).getText(),
+        "Login", "User did not log out");
   }
 
   public static void searchWithoutCategory(String searchStr) {
@@ -43,11 +65,23 @@ public class UiActions extends BaseTest {
 
   }
 
-  public static void loginToServerWith(String rUserName, String rUserPassword) {
-    log.info("Logging in to server as: " + rUserName + "/" + rUserPassword);
-  }
+  public static void messageSellerForSearchedItem(String messageBody) {
+    log.info("Contacting seller: " + messageBody);
 
-  public static void contactMediaOwnerOfSearchedItem() {
+    GeneralUtils.waitFor(100);
+
+    Assert.assertEquals(driver.findElement(By.linkText("Contact Seller")).getText(),
+        "Contact Seller", "Failed to find contact seller option");
+    driver.findElement(By.linkText("Contact Seller")).click();
+
+    GeneralUtils.waitFor(100);
+
+    Assert.assertEquals(driver.findElement(By.cssSelector("legend")).getText(),
+        "Send Message", "Message form is not displayed");
+    driver.findElement(By.id("msg-body")).clear();
+    driver.findElement(By.id("msg-body")).sendKeys(messageBody);
+    driver.findElement(By.cssSelector("form > button[type=\"submit\"]")).click();
+
   }
 
   public static void fillUpUserRegistrationForm(String customerEmail, String customerPassword) {
@@ -68,15 +102,4 @@ public class UiActions extends BaseTest {
     driver.findElement(By.cssSelector("form > button[type=\"submit\"]")).click();
   }
 
-
-  public static void loggingInToSystemAs(String userEmail, String userPassword) {
-    log.info("Logging into system as: " + userEmail + "/" + userPassword);
-
-    driver.findElement(By.id("email")).clear();
-    driver.findElement(By.id("email")).sendKeys(userEmail);
-    driver.findElement(By.id("password")).clear();
-    driver.findElement(By.id("password")).sendKeys(userPassword);
-
-    driver.findElement(By.cssSelector("form > button[type=\"submit\"]")).click();
-  }
 }

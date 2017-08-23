@@ -2,6 +2,8 @@ package com.team3.stockPhoto.automation.tests;
 
 import com.team3.stockPhoto.automation.actions.UiActions;
 import com.team3.stockPhoto.automation.base.BaseTest;
+import com.team3.stockPhoto.automation.utils.GeneralUtils;
+import com.team3.stockPhoto.automation.verifications.UiVerifications;
 import org.testng.annotations.Test;
 
 /**
@@ -14,20 +16,19 @@ public class BuyerTests extends BaseTest {
 
       // ==== CONFIGURATION ====
       String mediaTitle = "Banana Gun";
-      String mediaDescription = "hold it!";
-      String mediaPrice = " 25.95";
+      String messageToSeller = "Test Msg from Buyer on " + GeneralUtils.currentTimeStamp();
 
 
       // ==== ACTION ====
       UiActions.openUrl(USER_LOGIN_URL);
-      UiActions.loginToServerWith(BUYER_USER_NAME,BUYER_USER_PASSWORD );
+      UiActions.loggingInAs(BUYER_USER_NAME,BUYER_USER_PASSWORD );
 
       UiActions.openingHomePage();
       UiActions.searchWithoutCategory(mediaTitle);
 
-      UiActions.contactMediaOwnerOfSearchedItem();
+      UiActions.messageSellerForSearchedItem(messageToSeller);
 
       // ==== VERIFICATION ====
-//      UiVerifications.verifySearchResultWithOneItem(searchMediaTitle, searchMediaDescription );
+      UiVerifications.verifyMessageSentSuccessfully();
     }
 }
