@@ -10,8 +10,8 @@ import org.apache.log4j.Logger;
 /**
  * Created by rafsan on 8/9/2017.
  */
-public class BuyerTests extends BaseTest {
-  private static final Logger log = Logger.getLogger(BuyerTests.class);
+public class BuyerTest extends BaseTest {
+  private static final Logger log = Logger.getLogger(BuyerTest.class);
 
     @Test(enabled = true, description = "Verify buyer can contact media seller")
     public void  testBuyerContactMediaOwnerSuccess() throws Exception{

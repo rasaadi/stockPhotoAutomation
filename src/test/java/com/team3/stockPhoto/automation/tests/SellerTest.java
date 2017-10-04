@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 /**
  * Created by rafsan on 8/22/2017.
  */
-public class SellerTests extends BaseTest {
-  private static final Logger log = Logger.getLogger(SellerTests.class);
+public class SellerTest extends BaseTest {
+  private static final Logger log = Logger.getLogger(SellerTest.class);
 
   @Test(enabled = true, description = "Verify seller can view messages from potential buyers in his message list")
   public void  testSellerViewMessageInMessageListSuccess() throws Exception{

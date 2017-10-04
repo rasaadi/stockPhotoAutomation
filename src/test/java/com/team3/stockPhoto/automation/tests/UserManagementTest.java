@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 /**
  * Created by rafsan on 8/22/2017.
  */
-public class UserManagementTests extends BaseTest {
-  private static final Logger log = Logger.getLogger(UserManagementTests.class);
+public class UserManagementTest extends BaseTest {
+  private static final Logger log = Logger.getLogger(UserManagementTest.class);
 
   @Test(enabled = true, description = "Verify new customer can register into the stock photo marketplace")
   public void  testUserRegistrationSuccess() throws Exception{
