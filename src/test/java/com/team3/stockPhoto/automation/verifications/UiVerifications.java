@@ -13,7 +13,7 @@ import org.testng.Assert;
 public class UiVerifications extends BaseTest {
   private static final Logger log = Logger.getLogger(UiVerifications.class);
 
-  public static void verifySearchResultWithOneItem(String searchedTitle, String searchedDescription){
+  public static void verifySearchResultWithOneItemSuccess(String searchedTitle, String searchedDescription){
 
     log.info("Verifying one item search result for: " + searchedTitle );
 

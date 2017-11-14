@@ -7,17 +7,22 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 /**
- * Created by rafsan on 8/7/2017.
+ * Created by rafsan on 11/13/2017.
  */
-public class MediaSearchTest extends BaseTest {
-  private static final Logger log = Logger.getLogger(MediaSearchTest.class);
+public class FailTest extends BaseTest {
+  private static final Logger log = Logger.getLogger(FailTest.class);
 
-  @Test(enabled = true, description = "Verify un-registered user can search for desired media")
-  public void  testUnRegisteredUserSearchMediaSuccess() throws Exception{
+  /**
+   * This test is to simulate test failure and to check the error report
+   * @throws Exception
+   */
+
+  @Test(enabled = true, description = "FAIL: Verify un-registered user can search for desired media")
+  public void  testUnRegisteredUserSearchMediaFail() throws Exception{
 
     // ==== CONFIGURATION ====
-    String searchMediaTitle = "Banana Gun";
-    String searchMediaDescription = "hold it!";
+    String searchMediaTitle = "Item does not exist";
+    String searchMediaDescription = "No Description";
 
     // ==== ACTION ====
     UiActions.openingHomePage();

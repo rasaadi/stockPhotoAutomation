@@ -6,6 +6,7 @@
             <class name="com.team3.stockPhoto.automation.tests.MediaSearchTest"/>
             <class name="com.team3.stockPhoto.automation.tests.BuyerTest"/>
             <class name="com.team3.stockPhoto.automation.tests.SellerTest"/>
+            <class name="com.team3.stockPhoto.automation.tests.FailTest"/>
         </classes>
     </test>
 </suite>
